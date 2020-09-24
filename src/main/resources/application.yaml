@@ -1,0 +1,39 @@
+---
+server:
+  servlet:
+    contextPath: /techdev
+  port: 8082
+app:
+  build:
+    version: 1.0.0
+
+# logging
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+  level:
+    root: INFO
+    br:
+      com:
+        selecaomaps:
+          selecaomaps: DEBUG
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    username: tech
+    password: dev
+    url: jdbc:postgresql://localhost/db_techdev
+    initializationMode: always
+  jpa:
+    hibernate:
+      ddlAuto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    showSql: true
+
+  jackson:
+    deserialization:
+      failOnUnknownProperties: true
