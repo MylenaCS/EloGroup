@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    image: "postgres"
+    container_name: "techdev_postgres"
+    environment:
+      - POSTGRES_USER=tech
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=db_techdev
+    ports:
+      - "5432:5432"
+    volumes:
+      #- ./postgres-data:/var/lib/postgresql/data
+      - "tech-postgres:/var/lib/postgresql/data"
+volumes:
+  tech-postgres:
